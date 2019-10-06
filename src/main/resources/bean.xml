@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--方法一：使用默认构造器-->
+        <bean id="CarDao1" class="com.csd.Spring.demo1.CarDaoImpl"></bean>
+<!--方法二：使用静态工厂-->
+        <bean id="CarInstanceFactory" class="com.csd.Spring.demo1.CarInstanceFactory"></bean>
+        <bean id="CarDao2" factory-bean="CarInstanceFactory" factory-method="getCarDaoAccess"></bean>
+<!--方法三：使用静态工厂的静态方法-->
+        <bean id="CarDao3" class="com.csd.Spring.demo1.CarStaticFactory" factory-method="getCarInstance"></bean>
+
+</beans>
